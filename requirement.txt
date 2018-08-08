@@ -1,0 +1,31 @@
+Canvas Image Rotation/Zoom Demo
+
+I am struggling with incorporating zoom/rotate functionality into my web application. While I have the base zoom/rotation case working without issue, I am having issues with two more advanced use cases:
+
+1. Zoom In/Out at Specific Point
+The application uses the mouse wheel or pinch to zoom. Currently, the application zooms in and out at the center of the canvas view. I would like the application to zoom in at the x/y point that the user has centered around. The function that needs implemented would be:
+
+zoom( zoom_percentage, x_pos, y_pox )
+
+2. Rotation at Specific Point
+The application current rotates around the center of the image. If the user pans the canvas to another offset, it still rotates around the center of the image, not the center of the view. Much like the zoom function, the image should rotate around an input point:
+
+rotate( delta_rotate_degrees, x_pos, y_pos ) 
+
+These functions also need to set some overall parameters after showing the updated image:
+x_offset - pixels from center of image, x-axis
+y_offset - pixels from center of image ,y-axis
+scale - scale of image
+rotation - degrees of rotation from center of image
+
+Using the above parameters, the identical image should be able to be drawn as the result of the transformations. The function to draw the image when loaded is the following:
+
+canvasContext.clearRect( 0, 0, canvasWidth, canvasHeight );
+canvasContext.save();
+canvasContext.translate( setX, setY );
+canvasContext.rotate( toRadians( this.angleOfRotation ) );
+canvasContext.scale( currentScale, currentScale );
+canvasContext.drawImage( imageElement, -imageCenterX, -imageCenterY );
+canvasContext.restore();
+
+The demo application should have a single script file and a single HTML file. The demo should show a three canvas elements of different sizes. One canvas should be the redraw function above, the other two canvas elements should show the same result at a different size. The user should be able to input the parameters to the functions and then update the zoom or rotation

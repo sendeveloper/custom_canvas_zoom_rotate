@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>Canvas Rotate and Zoom</title>
+	<style>
+		#controller > div{
+			margin-bottom: 10px;
+		}
+		div p, div input{
+			display: inline-block;
+			width: 178px;
+			padding: 0;
+			margin: 0;
+		}
+		div p {
+			margin-right: 18px;
+		}
+		#draw{
+			width: 380px;
+			margin-bottom: 10px;
+		}
+		#init{
+			width: 380px;
+		}
+
+		body{font-family: sans-serif;}
+		h1 {font-size: 18px;}
+		p{font-size: 12px;}
+	</style>
+</head>
+<body>
+<canvas id="canvas1" width="600px" height="600px" 
+	style="position:absolute; left:10px; top:10px; border:1px solid #333">
+</canvas>
+<div style="position: absolute; left: 650px; top: 10px;" id="controller">
+	<h1>Initial Position</h1>
+	<div>
+		<p>Rotation: </p>
+		<input type="text" id="default_degree" value="0" />
+	</div>
+	<div>
+		<p>Zoom: </p>
+		<input type="text" id="default_percent" value="100" />
+	</div>
+	<div>
+		<p>X Offset: </p>
+		<input type="text" id="default_x" value="0" />
+	</div>
+	<div>
+		<p>Y Offset: </p>
+		<input type="text" id="default_y" value="0" />
+	</div>
+	<button id="init" onClick="initDraw()">Init</button>
+	<br/><br/>
+	<h1>Rotation</h1>
+	<div>
+		<p>Degree: </p>
+		<input type="text" id="rotation_degree" value="90" />
+	</div>
+	<button id="init" onClick="rotateFunc()">Rotate</button>
+
+	<br/><br/>
+	<h1>Zoom</h1>
+	<div>
+		<p>Percentage: </p>
+		<input type="text" id="zoom_percent" value="100" />
+	</div>
+	<div>
+		<p>Zoom Source X Offset: </p>
+		<input type="text" id="zoom_x" value="-100" />
+	</div>
+	<div>
+		<p>Zoom Source Y Offset: </p>
+		<input type="text" id="zoom_y" value="-150" />
+	</div>
+	<button id="draw" onClick="zoomFunc()">Zoom</button>
+</div>
+<script src="script.js"></script>
+<script>
+</script>
+</body>
+<html>
